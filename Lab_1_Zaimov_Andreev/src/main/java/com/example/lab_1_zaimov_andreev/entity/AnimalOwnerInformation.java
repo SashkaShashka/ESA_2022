@@ -32,6 +32,18 @@ public class AnimalOwnerInformation {
 
     }
 
+    public AnimalOwnerInformation(long animalOwnerId) {
+        this.animalOwnerId = animalOwnerId;
+    }
+
+    public long getAnimalOwnerId() {
+        return animalOwnerId;
+    }
+
+    public void setAnimalOwnerId(long animalOwnerId) {
+        this.animalOwnerId = animalOwnerId;
+    }
+
     public AnimalOwnerInformation(String firstName, String surname, String patronymic, String phoneNumber, String address) {
         this.firstName = firstName;
         this.surname = surname;

@@ -11,11 +11,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import jakarta.ejb.EJB;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 
-@WebServlet(name = "AddAndEditServlet", value = "/edit")
-public class AddAndEditServlet extends HttpServlet {
+@WebServlet(name = "AddAndEditServlet", value = "/OwnerEdit")
+public class OwnerAddEditServlet extends HttpServlet {
 
 
     @EJB
@@ -28,12 +26,16 @@ public class AddAndEditServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 
 
-        if(request.getParameter("edit")!=null){
-            long animalOwnerId = Long.valueOf(request.getParameter("edit"));
+
+        if(request.getParameter("animalOwnerId")!=null){
+            request.setAttribute("namePage", "Редактирование");
+            long animalOwnerId = Long.valueOf(request.getParameter("animalOwnerId"));
             AnimalOwnerInformation animalOwnerInformation = animalOwnerInformationBean.get(animalOwnerId);
 
             request.setAttribute("owner", animalOwnerInformation);
         }
+        else
+            request.setAttribute("namePage", "Добавление");
         request.getRequestDispatcher("/edit.jsp").forward(request,response);
     }
 
@@ -62,6 +64,7 @@ public class AddAndEditServlet extends HttpServlet {
         }else{
             animalOwnerInformationBean.add(new AnimalOwnerInformation(firstName,surname,patronymic,phoneNumber,address));
         }
-        getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+        request.getRequestDispatcher("/index.jsp").forward(request,response);
+        //getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
     }
 }

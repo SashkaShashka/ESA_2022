@@ -31,7 +31,7 @@ public class AnimalOwnerInformationBean {
         animalOwnerInfo.remove(get(animalOwnerId));
     }
     public List<AnimalOwnerInformation> getAll(){
-        TypedQuery<AnimalOwnerInformation> ownerQuery = animalOwnerInfo.createNamedQuery("AnimalOwnerInformation.getAll" ,AnimalOwnerInformation.class);
+        TypedQuery<AnimalOwnerInformation> ownerQuery = animalOwnerInfo.createNamedQuery("AnimalOwnerInformation.getAll", AnimalOwnerInformation.class);
         return ownerQuery.getResultList();
     }
 

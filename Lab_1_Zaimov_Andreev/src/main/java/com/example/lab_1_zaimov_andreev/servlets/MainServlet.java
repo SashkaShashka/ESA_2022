@@ -29,23 +29,16 @@ public class MainServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String test = "test test test";
-        request.setAttribute("test", test);
-        List<AnimalOwnerInformation> allInfo = animalOwnerInformationBean.getAll();
-        request.setAttribute("count", allInfo.stream().count());
-        request.setAttribute("qweqweqwe", "qweqewqwe");
-        List<SummaryOfTheAnimal> allSummary = summaryOfTheAnimalBean.getAll();
-        PrintWriter out = response.getWriter();
-        out.println("count");
-        out.println(allInfo.stream().count());
-        String h = helloBean.HelloWorld();
-        request.setAttribute("test", h);
+        response.setContentType("text/html");
+        request.setCharacterEncoding("UTF-8");
 
-        System.out.println(h);
+        List<AnimalOwnerInformation> allInfo = animalOwnerInformationBean.getAll();
+
+        List<SummaryOfTheAnimal> allSummary = summaryOfTheAnimalBean.getAll();
 
         request.setAttribute("owner", allInfo);
         request.setAttribute("animal", allSummary);
 
-        //request.getRequestDispatcher("/index.jsp").forward(request,response);
+        request.getRequestDispatcher("/index.jsp").forward(request,response);
     }
 }

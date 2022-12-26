@@ -29,7 +29,20 @@ public class SummaryOfTheAnimal {
 
     }
 
+    public SummaryOfTheAnimal(long chipId) {
+        this.chipId = chipId;
+    }
+
+    public long getChipId() {
+        return chipId;
+    }
+
+    public void setChipId(long chipId) {
+        this.chipId = chipId;
+    }
+
     public SummaryOfTheAnimal(String name, String sex, String color, String breed) {
+
         this.name = name;
         this.sex = sex;
         this.color = color;
