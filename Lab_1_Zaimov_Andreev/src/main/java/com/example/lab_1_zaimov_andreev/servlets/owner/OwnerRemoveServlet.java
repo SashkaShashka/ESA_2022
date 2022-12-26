@@ -1,4 +1,4 @@
-package com.example.lab_1_zaimov_andreev.servlets;
+package com.example.lab_1_zaimov_andreev.servlets.owner;
 
 import com.example.lab_1_zaimov_andreev.bean.AnimalOwnerInformationBean;
 import com.example.lab_1_zaimov_andreev.bean.SummaryOfTheAnimalBean;

@@ -1,8 +1,9 @@
-package com.example.lab_1_zaimov_andreev.servlets;
+package com.example.lab_1_zaimov_andreev.servlets.owner;
 
 import com.example.lab_1_zaimov_andreev.bean.AnimalOwnerInformationBean;
 import com.example.lab_1_zaimov_andreev.bean.SummaryOfTheAnimalBean;
 import com.example.lab_1_zaimov_andreev.entity.AnimalOwnerInformation;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -27,7 +28,7 @@ public class OwnerAddEditServlet extends HttpServlet {
 
 
 
-        if(request.getParameter("animalOwnerId")!=null){
+        if(request.getParameter("animalOwnerId") != null){
             request.setAttribute("namePage", "Редактирование");
             long animalOwnerId = Long.valueOf(request.getParameter("animalOwnerId"));
             AnimalOwnerInformation animalOwnerInformation = animalOwnerInformationBean.get(animalOwnerId);
@@ -36,7 +37,7 @@ public class OwnerAddEditServlet extends HttpServlet {
         }
         else
             request.setAttribute("namePage", "Добавление");
-        request.getRequestDispatcher("/edit.jsp").forward(request,response);
+        request.getRequestDispatcher("/ownerEdit.jsp").forward(request,response);
     }
 
     @Override
@@ -50,7 +51,9 @@ public class OwnerAddEditServlet extends HttpServlet {
         String phoneNumber = request.getParameter("phoneNumber");
         String address = request.getParameter("address");
 
-        if (request.getParameter("animalOwnerId") != null){
+
+
+        if (!request.getParameter("animalOwnerId").equals("")){
 
             long animalOwnerId = Long.valueOf(request.getParameter("animalOwnerId"));
             AnimalOwnerInformation animalOwnerInformation = animalOwnerInformationBean.get(animalOwnerId);
@@ -64,7 +67,7 @@ public class OwnerAddEditServlet extends HttpServlet {
         }else{
             animalOwnerInformationBean.add(new AnimalOwnerInformation(firstName,surname,patronymic,phoneNumber,address));
         }
-        request.getRequestDispatcher("/index.jsp").forward(request,response);
-        //getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+        ServletContext servletContext = getServletContext();
+        response.sendRedirect(request.getContextPath() + "/index");
     }
 }

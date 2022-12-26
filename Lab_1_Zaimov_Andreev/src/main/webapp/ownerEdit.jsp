@@ -6,7 +6,7 @@
     <title>${namePage}</title>
 </head>
 <body>
-<form action="edit" method="post">
+<form action="OwnerEdit" method="post">
     <label for="firstName">Введите имя:
         <input type="text" id="firstName" value="${owner.firstName}" name="firstName" />
     </label>  <br />
@@ -22,6 +22,7 @@
     <label for="address">Введите адрес:
         <input type="text" id="address" value="${owner.address}" name="address" />
     </label>  <br />
+    <label>${owner.animalOwnerId}</label>
     <input type="hidden" id="animalOwnerId" value="${owner.animalOwnerId}" name="animalOwnerId" />
     <input type="submit" value="Сохранить" />
 </form>
