@@ -1,7 +1,6 @@
 package com.example.lab_1_zaimov_andreev.servlets;
 
 import com.example.lab_1_zaimov_andreev.bean.AnimalOwnerInformationBean;
-import com.example.lab_1_zaimov_andreev.bean.HelloBean;
 import com.example.lab_1_zaimov_andreev.bean.SummaryOfTheAnimalBean;
 import com.example.lab_1_zaimov_andreev.classes.Pair;
 import com.example.lab_1_zaimov_andreev.entity.AnimalOwnerInformation;
@@ -26,8 +25,6 @@ public class MainServlet extends HttpServlet {
     private AnimalOwnerInformationBean animalOwnerInformationBean;
     @EJB
     private SummaryOfTheAnimalBean summaryOfTheAnimalBean;
-    @EJB
-    private HelloBean helloBean;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

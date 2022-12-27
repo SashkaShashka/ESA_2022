@@ -9,7 +9,7 @@
     <label for="firstName">Введите кличку:
         <input type="text" id="firstName" value="${animal.name}" name="name" />
     </label>  <br />
-    <label for="sex">Введите пол:
+    <label for="sex">Выберите пол:
         <select  id="sex" name="sex">
             <option value="Кабель">Кабель</option>
             <option value="Сука">Сука</option>

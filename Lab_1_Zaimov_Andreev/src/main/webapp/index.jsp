@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>JSP - Hello World</title>
+    <title>Главная страница</title>
 </head>
 <body>
 <h3>Животные:</h3>(<a href="AnimalEdit">добавить</a>)
