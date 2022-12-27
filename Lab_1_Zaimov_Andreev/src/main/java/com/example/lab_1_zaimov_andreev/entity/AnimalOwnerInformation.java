@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 @Entity(name = "owner")
 @Table(name = "animal_owner_information")
 @NamedQuery(name = "AnimalOwnerInformation.getAll", query = "SELECT a from owner a")
+@NamedQuery(name = "SummaryOfTheAnimal.getIds", query = "SELECT a.animalOwnerId from owner a")
 public class AnimalOwnerInformation {
 
 

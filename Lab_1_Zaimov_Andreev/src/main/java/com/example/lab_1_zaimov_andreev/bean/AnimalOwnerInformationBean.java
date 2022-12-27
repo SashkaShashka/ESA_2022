@@ -34,5 +34,11 @@ public class AnimalOwnerInformationBean {
         TypedQuery<AnimalOwnerInformation> ownerQuery = animalOwnerInfo.createNamedQuery("AnimalOwnerInformation.getAll", AnimalOwnerInformation.class);
         return ownerQuery.getResultList();
     }
+    public String getOwner(Long animalOwnerId){
+        if (animalOwnerId == null)
+            return "Владелец отсуствует";
+        AnimalOwnerInformation owner = get(animalOwnerId);
+        return owner.getFirstName() + " " + owner.getSurname() + " " + owner.getPatronymic();
+    }
 
 }

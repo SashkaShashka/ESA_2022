@@ -30,4 +30,9 @@ public class SummaryOfTheAnimalBean {
         TypedQuery<SummaryOfTheAnimal> animalQuery = summary.createNamedQuery("SummaryOfTheAnimal.getAll" ,SummaryOfTheAnimal.class);
         return animalQuery.getResultList();
     }
+
+    public List<Long> getIds() {
+        TypedQuery<Long> animalQuery = summary.createNamedQuery("SummaryOfTheAnimal.getIds", Long.class);
+        return animalQuery.getResultList();
+    }
 }

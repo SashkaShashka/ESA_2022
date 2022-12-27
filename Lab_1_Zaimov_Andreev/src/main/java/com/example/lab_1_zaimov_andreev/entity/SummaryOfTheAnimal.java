@@ -25,6 +25,17 @@ public class SummaryOfTheAnimal {
     @Column(name = "breed", nullable = false)
     private String breed;
 
+    @Column(name = "id_owner", nullable = true)
+    private Long id_owner;
+
+    public Long getId_owner() {
+       return this.id_owner;
+    }
+
+    public void setId_owner(Long id_owner) {
+        this.id_owner = id_owner;
+    }
+
     public SummaryOfTheAnimal(){
 
     }
@@ -41,12 +52,13 @@ public class SummaryOfTheAnimal {
         this.chipId = chipId;
     }
 
-    public SummaryOfTheAnimal(String name, String sex, String color, String breed) {
+    public SummaryOfTheAnimal(String name, String sex, String color, String breed, Long id_owner) {
 
         this.name = name;
         this.sex = sex;
         this.color = color;
         this.breed = breed;
+        this.id_owner = id_owner;
     }
 
     public String getName() {

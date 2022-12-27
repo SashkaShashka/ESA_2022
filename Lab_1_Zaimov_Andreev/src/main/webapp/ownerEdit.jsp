@@ -17,12 +17,11 @@
         <input type="text" id="patronymic" value="${owner.patronymic}" name="patronymic" />
     </label>  <br />
     <label for="phoneNumber">Введите телефон:
-        <input type="text" id="phoneNumber" value="${owner.phoneNumber}" name="phoneNumber" />
-    </label>  <br />
+        <input type="tel" id="phoneNumber" pattern="[8]{1}-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}" value="${owner.phoneNumber}" name="phoneNumber" />
+    </label> <small>Format: 8-111-111-11-11</small> <br />
     <label for="address">Введите адрес:
         <input type="text" id="address" value="${owner.address}" name="address" />
     </label>  <br />
-    <label>${owner.animalOwnerId}</label>
     <input type="hidden" id="animalOwnerId" value="${owner.animalOwnerId}" name="animalOwnerId" />
     <input type="submit" value="Сохранить" />
 </form>

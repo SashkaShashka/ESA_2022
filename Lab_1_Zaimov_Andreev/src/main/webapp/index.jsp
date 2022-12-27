@@ -11,8 +11,8 @@
 <ol>
     <c:forEach items="${animal}" var = "summaryOfTheAnimal">
         <li>
-                ${summaryOfTheAnimal.name} ${summaryOfTheAnimal.sex} ${summaryOfTheAnimal.color} ${summaryOfTheAnimal.breed}
-            <a href="AnimalEdit?chipId=${summaryOfTheAnimal.chipId}">Редактировать</a> | <a href="AnimalRemove?chipId=${summaryOfTheAnimal.chipId}">Удалить</a>
+                ${summaryOfTheAnimal.getInfo()}
+            <a href="AnimalEdit?chipId=${summaryOfTheAnimal.getId()}">Редактировать</a> | <a href="AnimalRemove?chipId=${summaryOfTheAnimal.getId()}">Удалить</a>
         </li>
     </c:forEach>
 </ol>
@@ -22,8 +22,8 @@
 <ol>
     <c:forEach items="${owner}" var = "animalOwnerInformation">
         <li>
-                ${animalOwnerInformation.firstName} ${animalOwnerInformation.surname} ${animalOwnerInformation.patronymic} ${animalOwnerInformation.phoneNumber}
-            <a href="OwnerEdit?animalOwnerId=${animalOwnerInformation.animalOwnerId}">Редактировать</a> | <a href="OwnerRemove?animalOwnerId=${animalOwnerInformation.animalOwnerId}">Удалить</a>
+                ${animalOwnerInformation.getInfo()}
+            <a href="OwnerEdit?animalOwnerId=${animalOwnerInformation.getId()}">Редактировать</a> | <a href="OwnerRemove?animalOwnerId=${animalOwnerInformation.getId()}">Удалить</a>
         </li>
     </c:forEach>
 </ol>
