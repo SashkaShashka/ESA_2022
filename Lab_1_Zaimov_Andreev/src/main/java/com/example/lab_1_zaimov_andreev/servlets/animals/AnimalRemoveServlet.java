@@ -1,6 +1,6 @@
 package com.example.lab_1_zaimov_andreev.servlets.animals;
 
-import com.example.lab_1_zaimov_andreev.bean.SummaryOfTheAnimalBean;
+import com.example.lab_1_zaimov_andreev.bean.AnimalBean;
 import jakarta.ejb.EJB;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -12,7 +12,7 @@ import java.io.IOException;
 public class AnimalRemoveServlet extends HttpServlet {
 
     @EJB
-    private SummaryOfTheAnimalBean summaryOfTheAnimalBean;
+    private AnimalBean animalBean;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,7 +24,7 @@ public class AnimalRemoveServlet extends HttpServlet {
         if(request.getParameter("chipId") != null){
             request.setAttribute("namePage", "Удаление");
             long chipId = Long.valueOf(request.getParameter("chipId"));
-            summaryOfTheAnimalBean.delete(chipId);
+            animalBean.delete(chipId);
         }
         else
             request.setAttribute("namePage", "Error 404");

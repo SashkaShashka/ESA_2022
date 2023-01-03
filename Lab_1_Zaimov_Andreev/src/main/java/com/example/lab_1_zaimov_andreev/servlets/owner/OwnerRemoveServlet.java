@@ -1,9 +1,6 @@
 package com.example.lab_1_zaimov_andreev.servlets.owner;
 
-import com.example.lab_1_zaimov_andreev.bean.AnimalOwnerInformationBean;
-import com.example.lab_1_zaimov_andreev.bean.SummaryOfTheAnimalBean;
-import com.example.lab_1_zaimov_andreev.entity.AnimalOwnerInformation;
-import jakarta.servlet.RequestDispatcher;
+import com.example.lab_1_zaimov_andreev.bean.OwnerBean;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -20,7 +17,7 @@ import java.io.IOException;
 public class OwnerRemoveServlet extends HttpServlet {
 
     @EJB
-    private AnimalOwnerInformationBean animalOwnerInformationBean;
+    private OwnerBean ownerBean;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,10 +26,10 @@ public class OwnerRemoveServlet extends HttpServlet {
 
 
 
-        if(request.getParameter("animalOwnerId") != null){
+        if(request.getParameter("ownerId") != null){
             request.setAttribute("namePage", "Удаление");
-            long animalOwnerId = Long.valueOf(request.getParameter("animalOwnerId"));
-            animalOwnerInformationBean.delete(animalOwnerId);
+            long animalOwnerId = Long.valueOf(request.getParameter("ownerId"));
+            ownerBean.delete(animalOwnerId);
         }
         else
             request.setAttribute("namePage", "Error 404");

@@ -9,21 +9,27 @@
 <body>
 <h3>Животные:</h3>(<a href="AnimalEdit">добавить</a>)
 <ol>
-    <c:forEach items="${animal}" var = "summaryOfTheAnimal">
+    <c:forEach items="${animals}" var = "animal">
         <li>
-                ${summaryOfTheAnimal.getInfo()}
-            <a href="AnimalEdit?chipId=${summaryOfTheAnimal.getId()}">Редактировать</a> | <a href="AnimalRemove?chipId=${summaryOfTheAnimal.getId()}">Удалить</a>
+                ${animal.toString()}
+            <a href="AnimalEdit?chipId=${animal.getChipId()}">Редактировать</a> | <a href="AnimalRemove?chipId=${animal.getChipId()}">Удалить</a>
         </li>
     </c:forEach>
 </ol>
-
-
 <h3>Хозяева:</h3>(<a href="OwnerEdit">Добавить</a>)
 <ol>
-    <c:forEach items="${owner}" var = "animalOwnerInformation">
+    <c:forEach items="${owners}" var = "owner">
         <li>
-                ${animalOwnerInformation.getInfo()}
-            <a href="OwnerEdit?animalOwnerId=${animalOwnerInformation.getId()}">Редактировать</a> | <a href="OwnerRemove?animalOwnerId=${animalOwnerInformation.getId()}">Удалить</a>
+                ${owner.toString()}
+                    <a href="OwnerEdit?ownerId=${owner.getOwnerId()}">Редактировать</a> | <a href="OwnerRemove?ownerId=${owner.getOwnerId()}">Удалить</a>
+
+                    <ol>
+                    <c:forEach items="${owner.getAnimals()}" var = "animal">
+                        <li>
+                            ${animal.getStringAnimal()}
+                        </li>
+                    </c:forEach>
+                </ol>
         </li>
     </c:forEach>
 </ol>

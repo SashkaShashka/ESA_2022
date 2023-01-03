@@ -1,8 +1,8 @@
 package com.example.lab_1_zaimov_andreev.servlets.owner;
 
-import com.example.lab_1_zaimov_andreev.bean.AnimalOwnerInformationBean;
-import com.example.lab_1_zaimov_andreev.bean.SummaryOfTheAnimalBean;
-import com.example.lab_1_zaimov_andreev.entity.AnimalOwnerInformation;
+import com.example.lab_1_zaimov_andreev.bean.OwnerBean;
+import com.example.lab_1_zaimov_andreev.bean.AnimalBean;
+import com.example.lab_1_zaimov_andreev.entity.Owner;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -18,9 +18,9 @@ public class OwnerAddEditServlet extends HttpServlet {
 
 
     @EJB
-    private SummaryOfTheAnimalBean summaryOfTheAnimalBean;
+    private AnimalBean animalBean;
     @EJB
-    private AnimalOwnerInformationBean animalOwnerInformationBean;
+    private OwnerBean ownerBean;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
@@ -28,12 +28,12 @@ public class OwnerAddEditServlet extends HttpServlet {
 
 
 
-        if(request.getParameter("animalOwnerId") != null){
+        if(request.getParameter("ownerId") != null){
             request.setAttribute("namePage", "Редактирование");
-            long animalOwnerId = Long.valueOf(request.getParameter("animalOwnerId"));
-            AnimalOwnerInformation animalOwnerInformation = animalOwnerInformationBean.get(animalOwnerId);
+            long animalOwnerId = Long.valueOf(request.getParameter("ownerId"));
+            Owner owner = ownerBean.get(animalOwnerId);
 
-            request.setAttribute("owner", animalOwnerInformation);
+            request.setAttribute("owner", owner);
         }
         else
             request.setAttribute("namePage", "Добавление");
@@ -53,19 +53,20 @@ public class OwnerAddEditServlet extends HttpServlet {
 
 
 
-        if (!request.getParameter("animalOwnerId").equals("")){
+        if (!request.getParameter("ownerId").equals("")){
 
-            long animalOwnerId = Long.valueOf(request.getParameter("animalOwnerId"));
-            AnimalOwnerInformation animalOwnerInformation = animalOwnerInformationBean.get(animalOwnerId);
-            animalOwnerInformation.setFirstName(firstName);
-            animalOwnerInformation.setSurname(surname);
-            animalOwnerInformation.setPatronymic(patronymic);
-            animalOwnerInformation.setPhoneNumber(phoneNumber);
-            animalOwnerInformation.setAddress(address);
+            long animalOwnerId = Long.valueOf(request.getParameter("ownerId"));
+            Owner owner = ownerBean.get(animalOwnerId);
+            owner.setFirstName(firstName);
+            owner.setSurname(surname);
+            owner.setPatronymic(patronymic);
+            owner.setPhoneNumber(phoneNumber);
+            owner.setAddress(address);
 
-            animalOwnerInformationBean.update(animalOwnerInformation);
+
+            ownerBean.update(owner);
         }else{
-            animalOwnerInformationBean.add(new AnimalOwnerInformation(firstName,surname,patronymic,phoneNumber,address));
+            ownerBean.add(new Owner(firstName,surname,patronymic,phoneNumber,address));
         }
         ServletContext servletContext = getServletContext();
         response.sendRedirect(request.getContextPath() + "/index");
