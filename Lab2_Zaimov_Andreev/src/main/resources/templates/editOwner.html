@@ -6,6 +6,7 @@
   <title>Редактирование</title>
 </head>
 <body>
+<h3>Заполните данные хозяина</h3>
 <form action="#" th:action="@{/owner/edit}" method="post" th:object="${owner}">
   <input type="hidden" th:field = "*{ownerId}">
   <input th:field = "*{firstName}" placeholder="Введите фамилию" class="form-control col-10" required><br>

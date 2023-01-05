@@ -32,15 +32,21 @@ public class OwnerController {
     }
     @PostMapping("/add")
     public String insertOwner(@ModelAttribute("owner") Owner owner, BindingResult bindingResult){
+        if (bindingResult.hasErrors()) {
+            return "/error";
+        }
         ownerRepository.save(owner);
         return "redirect:/owner";
     }
     @GetMapping("/edit")
     public String editOwner(@RequestParam Long ownerID, Model model){
         Optional<Owner> optionalOwner= ownerRepository.findById(ownerID);
-        Owner owner = optionalOwner.get();
-        model.addAttribute("owner",owner);
+        if (optionalOwner.isPresent())
+            model.addAttribute("owner",optionalOwner.get());
+        else
+            throw new RuntimeException("Owner not found. Id = " + ownerID);
         return "editOwner";
+
     }
     @PostMapping("/edit")
     public String updateOwner(@ModelAttribute("owner") Owner owner, BindingResult bindingResult){

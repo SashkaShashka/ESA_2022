@@ -6,6 +6,7 @@
   <title>Добавление</title>
 </head>
 <body>
+<h3>Заполните данные хозяина</h3>
 <form action="#" th:action="@{/owner/add}" method="post" th:object="${owner}">
   <input th:field = "*{firstName}" placeholder="Введите фамилию" class="form-control col-10" required><br>
   <input th:field = "*{surname}"  placeholder="Введите имя" class="form-control col-2"required><br>

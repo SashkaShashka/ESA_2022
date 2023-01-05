@@ -37,14 +37,19 @@ public class AnimalController {
     }
     @PostMapping("/add")
     public String insertAnimal(@ModelAttribute("animal") Animal animal, BindingResult bindingResult){
+        if (bindingResult.hasErrors()) {
+            return "/error";
+        }
         animalRepository.save(animal);
         return "redirect:/animal";
     }
     @GetMapping("/edit")
     public String editAnimal(@RequestParam Long chipId, Model model){
         Optional<Animal> animalOptional= animalRepository.findById(chipId);
-        Animal animal = animalOptional.get();
-        model.addAttribute("animal",animal);
+        if (animalOptional.isPresent())
+            model.addAttribute("animal", animalOptional.get());
+        else
+            throw new RuntimeException("Animal not found. Id = " + chipId);
         model.addAttribute("owners", ownerRepository.findAll());
         return "editAnimal";
     }
