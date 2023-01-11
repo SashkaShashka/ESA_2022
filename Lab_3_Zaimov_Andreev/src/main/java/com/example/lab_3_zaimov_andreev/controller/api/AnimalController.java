@@ -35,9 +35,8 @@ public class AnimalController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public Animal delete(@PathVariable Long id){
+    public void delete(@PathVariable Long id){
         Animal animal = animalRepository.findById(id).orElseThrow();
         animalRepository.delete(animal);
-        return animal;
     }
 }
