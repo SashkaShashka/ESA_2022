@@ -42,9 +42,8 @@ public class OwnerController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public Owner delete(@PathVariable Long id){
+    public void delete(@PathVariable Long id){
         Owner owner = ownerRepository.findById(id).orElseThrow();
         ownerRepository.delete(owner);
-        return owner;
     }
 }

@@ -17,8 +17,8 @@
         </html>
     </xsl:template>
     <!--List for Filter and ArrayList for controller-->
-    <xsl:template match="List|ArrayList|Owner">
-        <div class="bg-image h-100" style="background-image: url('https://image.shutterstock.com/shutterstock/photos/794439940/display_1500/stock-vector-a-vector-illustration-of-family-adopting-a-dog-from-animal-shelter-794439940.jpg');">
+    <xsl:template match="List|ArrayList">
+        <div class="bg-image h-100" style="background-image: url('https://flomaster.club/uploads/posts/2022-07/1657889800_2-flomaster-club-p-risunok-priyut-dlya-zhivotnikh-krasivo-4.png');">
             <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0,0,0,.25);">
                 <div class="container">
                     <div class="row justify-content-center">
@@ -50,7 +50,7 @@
                                                         <td>
                                                             <xsl:for-each select=".//animals">
                                                                 <p>
-                                                                    <xsl:value-of select="stringAnimal[text() != '']" />
+                                                                    <xsl:value-of select="stringAnimal" />
                                                                 </p>
                                                             </xsl:for-each>
                                                         </td>
@@ -68,7 +68,7 @@
         </div>
     </xsl:template>
     <xsl:template match="Owner">
-        <div class="bg-image h-100" style="background-image: url('https://image.shutterstock.com/shutterstock/photos/794439940/display_1500/stock-vector-a-vector-illustration-of-family-adopting-a-dog-from-animal-shelter-794439940.jpg');">
+        <div class="bg-image h-100" style="background-image: url('https://flomaster.club/uploads/posts/2022-07/1657889800_2-flomaster-club-p-risunok-priyut-dlya-zhivotnikh-krasivo-4.png');">
             <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0,0,0,.25);">
                 <div class="container">
                     <div class="row justify-content-center">
@@ -99,7 +99,7 @@
                                                     <td>
                                                         <xsl:for-each select=".//animals">
                                                             <p>
-                                                                <xsl:value-of select="stringAnimal[text() != '']" />
+                                                                <xsl:value-of select="stringAnimal" />
                                                             </p>
                                                         </xsl:for-each>
                                                     </td>
