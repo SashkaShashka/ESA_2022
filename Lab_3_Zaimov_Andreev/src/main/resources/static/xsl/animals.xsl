@@ -33,6 +33,7 @@
                                                     <th scope="col">Пол</th>
                                                     <th scope="col">Цвет</th>
                                                     <th scope="col">Порода</th>
+                                                    <th scope="col">Хозяин</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -49,6 +50,9 @@
                                                         </td>
                                                         <td>
                                                             <xsl:value-of select="breed" />
+                                                        </td>
+                                                        <td>
+                                                            <xsl:value-of select="fullNameOwner" />
                                                         </td>
                                                     </tr>
                                                 </xsl:for-each>

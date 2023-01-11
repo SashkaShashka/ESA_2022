@@ -57,6 +57,9 @@ public class Animal {
         }
 
     }
+    public String getFullNameOwner(){
+        return ("Хозяин: " + (owner != null ? owner.getStringFullName() : " отсутствует"));
+    }
     public String getStringAnimal() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Кличка: ");
@@ -80,8 +83,8 @@ public class Animal {
         stringBuilder.append(color);
         stringBuilder.append(" | Порода: ");
         stringBuilder.append(breed);
-        stringBuilder.append(" | Хозяин: ");
-        stringBuilder.append(owner != null ? owner.getStringFullName() : "отсутствует");
+        stringBuilder.append(" | ");
+        stringBuilder.append(getFullNameOwner());
         return stringBuilder.toString();
     }
 }
