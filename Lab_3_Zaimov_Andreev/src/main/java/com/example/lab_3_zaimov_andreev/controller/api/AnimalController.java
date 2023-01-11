@@ -11,7 +11,7 @@ import java.util.List;
 public class AnimalController {
 
     @Autowired
-    AnimalRepository animalRepository;
+    private AnimalRepository animalRepository;
 
     @GetMapping("/{id}")
     public Animal findById(@PathVariable Long id){

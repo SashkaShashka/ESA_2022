@@ -18,7 +18,7 @@ import java.util.Optional;
 public class OwnerController {
 
     @Autowired
-    OwnerRepository ownerRepository;
+    private OwnerRepository ownerRepository;
 
     @GetMapping("/{id}")
     public Owner findById(@PathVariable Long id){
