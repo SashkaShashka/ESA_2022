@@ -11,3 +11,4 @@
 4) Как можно видеть по Get запросам в хэдэре Accept ставя различные параметры мы получаем различные ответы. Application/json возвращает json объект, а Application/xml уже преобразованную страницу.
 ![image](https://user-images.githubusercontent.com/62326372/211827199-aaf7e01d-cd51-4b7d-ad67-abae444f1e7a.png) </br>
 ![image](https://user-images.githubusercontent.com/62326372/211828677-928ddff9-bfb7-4a94-b676-3b96b0cab762.png)
+P.S. Добавлен @Autowired для репозиториев в контроллерах и поле сделано private. Почищены модели от лишних геттеров и сеттеров.
