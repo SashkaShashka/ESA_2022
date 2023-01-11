@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -28,7 +29,11 @@ public class AnimalController {
         model.addAttribute("animals", animalRepository.findAll());
         return "animals";
     }
-
+    @GetMapping("/all")
+    @ResponseBody
+    public List<Animal> getAllBooks(){
+        return animalRepository.findAll();
+    }
     @GetMapping("/add")
     public String addAnimal(Model model){
         model.addAttribute("animal", new Animal());

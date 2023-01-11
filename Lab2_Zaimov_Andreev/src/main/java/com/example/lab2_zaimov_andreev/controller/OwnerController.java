@@ -1,4 +1,5 @@
 package com.example.lab2_zaimov_andreev.controller;
+import com.example.lab2_zaimov_andreev.model.Animal;
 import com.example.lab2_zaimov_andreev.model.Owner;
 import com.example.lab2_zaimov_andreev.repository.OwnerRepository;
 import org.springframework.stereotype.Controller;
@@ -24,7 +25,11 @@ public class OwnerController {
         return "owners";
     }
 
-
+    @GetMapping("/all")
+    @ResponseBody
+    public List<Owner> getAllBooks(){
+        return ownerRepository.findAll();
+    }
     @GetMapping("/add")
     public String addOwner(Model model){
         model.addAttribute("owner", new Owner());

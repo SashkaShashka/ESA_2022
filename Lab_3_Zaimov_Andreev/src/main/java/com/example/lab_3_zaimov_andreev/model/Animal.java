@@ -1,6 +1,7 @@
-package com.example.lab2_zaimov_andreev.model;
+package com.example.lab_3_zaimov_andreev.model;
 
-import com.example.lab2_zaimov_andreev.model.Owner;
+import com.example.lab_3_zaimov_andreev.model.Owner;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,8 +34,9 @@ public class Animal {
     @Column(name = "breed", nullable = false)
     private String breed;
 
-    @ManyToOne()
-    @JoinColumn(name = "animal_owner_id", nullable = true)
+    @ManyToOne(optional = false)
+    @JsonIgnore
+    @JoinColumn(name = "animal_owner_id")
     private Owner owner;
 
     public Animal(String name, String sex, String color, String breed, Owner owner) {
@@ -53,6 +55,7 @@ public class Animal {
         else{
             this.owner= null;
         }
+
     }
     public String getStringAnimal() {
         StringBuilder stringBuilder = new StringBuilder();
@@ -78,7 +81,7 @@ public class Animal {
         stringBuilder.append(" | Порода: ");
         stringBuilder.append(breed);
         stringBuilder.append(" | Хозяин: ");
-        stringBuilder.append(owner != null ? owner.getFullName() : "отсутствует");
+        stringBuilder.append(owner != null ? owner.getStringFullName() : "отсутствует");
         return stringBuilder.toString();
     }
 }

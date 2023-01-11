@@ -1,24 +1,31 @@
-package com.example.lab2_zaimov_andreev.model;
+package com.example.lab_3_zaimov_andreev.model;
 
 
-import com.example.lab2_zaimov_andreev.model.Owner;
+import com.example.lab_3_zaimov_andreev.model.Owner;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import jakarta.persistence.*;
 import java.util.List;
+
+//import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+//import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 @Entity(name = "owner")
 @Table(name = "animal_owner_information")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+//@JsonTypeInfo(include=As.WRAPPER_OBJECT, use=Id.NAME)
 public class Owner {
 
+    //@jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "animal_owner_id")
-    private long ownerId;
+    private long animal_owner_id;
     @Basic
     @Column(name = "first_name", nullable = false)
     private String firstName;
@@ -51,12 +58,13 @@ public class Owner {
     public void addAnimal(Animal animal){
         animals.add(animal);
         animal.setOwner(this);
+
     }
     public void removeAnimal(Animal animal){
         animals.remove(animal);
         animal.setOwner(null);
     }
-    public String getFullName(){
+    public String getStringFullName(){
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(firstName);
         stringBuilder.append(" ");
