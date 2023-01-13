@@ -7,7 +7,7 @@
 ![image](https://user-images.githubusercontent.com/62326372/212367984-eab0c22f-cfd4-43e1-b596-6ef7158271af.png) </br>
 3) Демонстрация логирования на почте Сообщения про `animals` аналогичны.</br>
 ![image](https://user-images.githubusercontent.com/62326372/212368147-45ef0c59-dd66-410d-bff5-d0477775f122.png) </br>
-![image](https://user-images.githubusercontent.com/62326372/212368314-0b322811-c896-4f07-868d-6cd299e838d4.png) </br>
-![image](https://user-images.githubusercontent.com/62326372/212368398-de477b87-a368-45f6-abbc-4964f33dac58.png) </br>
-![image](https://user-images.githubusercontent.com/62326372/212368498-8cf7a526-15be-48f9-9563-6e9df13b36b4.png) </br>
+![image](https://user-images.githubusercontent.com/62326372/212369898-9ad75e28-7d54-4474-945a-b415bc52eed0.png) </br>
+![image](https://user-images.githubusercontent.com/62326372/212369956-997f098a-092d-49c4-9b55-a7b531191131.png) </br>
+![image](https://user-images.githubusercontent.com/62326372/212369992-a6a2f358-b72f-434d-8630-d56423938fe1.png) </br>
 4) Файл `application.properties` не загружался, дабы не светить адрес своей электронной почты
