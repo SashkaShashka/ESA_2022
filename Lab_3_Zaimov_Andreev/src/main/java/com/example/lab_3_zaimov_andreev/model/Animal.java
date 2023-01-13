@@ -34,7 +34,7 @@ public class Animal {
     @Column(name = "breed", nullable = false)
     private String breed;
 
-    @ManyToOne(optional = false)
+    @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "animal_owner_id")
     private Owner owner;
